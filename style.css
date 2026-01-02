@@ -5,12 +5,23 @@ body {
   line-height: 1.65;
   margin: 4rem auto;
   padding: 0 1rem;
+  background: #fafafa;
+  color: #111;
+}
+
+main > * {
+  margin-bottom: 1.5rem;
 }
 
 h1 {
   margin-bottom: 0.5rem;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 3rem 0;
+}
 ul {
   list-style: none;
   padding: 0;
@@ -21,5 +32,20 @@ li {
 }
 
 a {
+  color: #2f4f4f;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  opacity: 0.7;
+}
+
+nav {
+  font-size: 0.9em;
+} 
+nav a {
+  text-decoration: none;
+}
+nav a:hover {
   text-decoration: underline;
 }
