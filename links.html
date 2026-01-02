@@ -6,11 +6,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  fetch('/nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('nav').innerHTML = html;
+    });
+</script>
 <body>
      <ul>
       <li><a href="https://substack.com/@hotdogapocalypse">Substack</a></li>
       <li><a href="https://moxfield.com/users/hotdogapocalypse">Commander Decklists</a></li>
       Some of my favourite resources
     </ul>
+    <div id ="nav"></div>
 </body>
 </html>
