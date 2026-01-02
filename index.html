@@ -6,8 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  fetch('/nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('nav').innerHTML = html;
+    });
+</script>
 <body>
   <main>
+    <div id ="nav"></div>
     <h1>Weclome to the Hotdog Apocalypse</h1>
     <p>
       The musings of a tube of extruded meat.
