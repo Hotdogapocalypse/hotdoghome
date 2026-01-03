@@ -4,8 +4,8 @@ body {
   line-height: 1.65;
   margin: 4rem auto;
   padding: 0 1rem;
-  background: #FFDF9C;
-  color: #68A0AD;
+  background: #F0FFF4;
+  color: #111111;
 }
 
 main > * {
@@ -18,7 +18,7 @@ h1 {
 
 hr {
   border: none;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #CBA6FF;
   margin: 3rem 0;
 }
 ul {
@@ -31,12 +31,12 @@ li {
 }
 
 a {
-  color: inherit;
+  color: #FFB6B9;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 a:hover {
-  opacity: 0.7;
+  color: #FF8C94;
 }
 
 } 
@@ -45,4 +45,9 @@ nav a {
 }
 nav a:hover {
   text-decoration: underline;
+}
+.section-mint {
+  background-color: #AEE5BC;
+  padding: 2rem;
+  border-radius: 8px;
 }
