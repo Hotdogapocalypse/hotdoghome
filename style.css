@@ -31,12 +31,12 @@ li {
 }
 
 a {
-  color: #FFB6B9;
+  color: #CBA6FF;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 a:hover {
-  color: #FF8C94;
+  opacity: 0.7;
 }
 
 } 
