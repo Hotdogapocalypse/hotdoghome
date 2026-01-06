@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home for a Hot Dog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<script>
+  fetch('/nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('nav').innerHTML = html;
+    });
+</script>
+<body>
+  <main>
+    <p>
+       I'm a slender tube of extruded meat. My head is full of pesky thoughts that just won't go away. About 8 years ago though, 
+       I learned that they don't bother me as much if I can find somewhere to put them. So I've created this space to help keep things
+       tidy. Check out my <a href="substack.com/@hotdogapocalypse">blog</a>, or if you like Magic: The Gathering check out my <a href="moxfield.com/users/hotdogapocalypse">decks</a>.
+    </p>
+    <div id ="nav"></div>
+  </main>
+</body>
+</html>

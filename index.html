@@ -9,22 +9,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<script>
-  fetch('/nav.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('nav').innerHTML = html;
-    });
-</script>
 <body>
   <main>
-   <h1>Welcome to the hot dog apocalypse...</h1>
-    <p>
-     Hi,<br><br>
+          <!-- RSS Embed -->
+    <div id="substack-feed-embed"></div>
+    <script>
+      window.SubstackFeedWidget = {
+        substackUrl: "hotdogapocalypse.substack.com",
+        posts: 3,
+        showImages: true,
+        showDates: true
+      };
+    </script>
+    <script src="embed-substack-rss.js"></script>
+    <div id="nav"></div>
 
-     I'm a slender tube of extruded meat. About 7 or 8 years ago, I started journaling. Since then I've realized that my head it's full of pesky thoughts that just don't go away unless I put them somewhere. So I've created this space to keep things tidy. Check out my blog, or if you like Magic: The Gathering check out my decks. 
-    </p>
-    <div id ="nav"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/nav.html')
+          .then(response => response.text())
+          .then(html => {
+            const el = document.getElementById('nav');
+            if (el) el.innerHTML = html;
+          })
+          .catch(console.error);
+      });
+    </script>
   </main>
 </body>
 </html>

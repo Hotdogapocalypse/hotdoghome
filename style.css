@@ -4,7 +4,7 @@ body {
   line-height: 1.65;
   margin: 4rem auto;
   padding: 0 1rem;
-  background: #F0FFF4;
+  background: #edd46f;
   color: #111111;
 }
 
@@ -18,7 +18,7 @@ h1 {
 
 hr {
   border: none;
-  border-top: 1px solid #CBA6FF;
+  border-top: 1px solid #ef510e;
   margin: 3rem 0;
 }
 ul {
@@ -31,7 +31,7 @@ li {
 }
 
 a {
-  color: #CBA6FF;
+  color: #ef510e;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -39,15 +39,77 @@ a:hover {
   opacity: 0.7;
 }
 
-} 
+/* Center nav links using flexbox so the group is centered on the page */
+#nav, nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 nav a {
-  text-decoration: none;
+  text-decoration: underline;
+  display: inline-block;
+  margin: 0 0.5rem;
 }
 nav a:hover {
   text-decoration: underline;
 }
 .section-mint {
-  background-color: #AEE5BC;
+  background-color: inherit;
   padding: 2rem;
   border-radius: 8px;
+}
+
+/* Substack embed styles: centers cards and constrains width */
+.substack-feed-embed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  margin: 1rem 0;
+}
+.substack-card {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  color: inherit;
+  text-decoration: none;
+}
+.substack-post {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #ede1b1;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 12px 36px rgba(17,17,17,0.06);
+}
+.substack-thumbnail {
+  width: 140px;
+  height: 94px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.substack-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: inherit;
+}
+.substack-date {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: #666666;
+}
+.substack-desc {
+  margin: 0;
+  color: #333333;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .substack-post { flex-direction: column; }
+  .substack-thumbnail { width: 100%; height: 200px; }
 }
