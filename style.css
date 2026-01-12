@@ -8,8 +8,18 @@ body {
   color: #111111;
 }
 
+/* Use border-box everywhere to avoid width+padding overflow issues */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
 main > * {
   margin-bottom: 1.5rem;
+}
+main.links-page {
+  width: 100%;
+  max-width: 500px;
+  padding: 3rem 1rem;
+  text-align: center;
 }
 
 h1 {
@@ -39,12 +49,49 @@ a:hover {
   opacity: 0.7;
 }
 
+/* Link Page Buttons */
+.links a {
+  display: block;
+   padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background: #ede1b1;
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  align-items: stretch;
+}
+
+.links a:hover {
+  opacity: 0.85; 
+  transform: translateY(-2px);
+}
+
+/* Bio bubble: styled like the link buttons and substack posts */
+.bio {
+  display: flex;
+  justify-content: center;
+}
+.bio-bubble {
+  background: #ede1b1;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  max-width: 640px;
+  box-shadow: 0 12px 36px rgba(17,17,17,0.06);
+  color: inherit;
+  line-height: 1.6;
+}
+.bio-bubble p { margin: 0; }
+
 /* Center nav links using flexbox so the group is centered on the page */
 #nav, nav {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 nav a {
   text-decoration: underline;
@@ -113,3 +160,63 @@ nav a:hover {
   .substack-post { flex-direction: column; }
   .substack-thumbnail { width: 100%; height: 200px; }
 }
+
+/* Avatar styles */
+.avatar-wrap {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.site-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  /*border: 1px solid rgba(255,255,255,0.9);*/
+  box-shadow: 0 6px 18px rgba(17,17,17,0.12);
+}
+@media (max-width: 420px) {
+  .site-avatar { width: 84px; height: 84px; }
+}
+
+/* Responsive utilities and tweaks */
+img { max-width: 100%; height: auto; display: block; }
+
+/* Scale headings smoothly */
+h1 {
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+}
+
+/* Make link buttons fluid but constrained on large screens */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.links a {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  min-height: 48px;
+}
+
+/* Make bio and substack cards more fluid on small screens */
+.bio-bubble, .substack-card {
+  width: 100%;
+  max-width: 90vw;
+}
+
+/* Mobile breakpoint: reduce paddings and margins for small screens */
+@media (max-width: 600px) {
+  body {
+    margin: 2rem auto;
+    padding: 0 0.85rem;
+  }
+  main.links-page { padding: 2rem 0.75rem; }
+  .links a { padding: 0.75rem 1rem; font-size: 1rem; }
+  .bio-bubble { padding: 1rem; }
+  .substack-post { gap: 0.5rem; padding: 0.6rem; }
+}
+
+/* Small-screen touch target improvements */
+.links a, .substack-card, .bio-bubble { -webkit-tap-highlight-color: rgba(0,0,0,0); }

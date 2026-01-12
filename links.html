@@ -9,25 +9,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<script>
-  fetch('/nav.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('nav').innerHTML = html;
-    });
-</script>
 <body>
-<h1>Links</h1>
-     <ul>
-    <h2>Writing</h2>
-      <li><a href="https://substack.com/@hotdogapocalypse">Substack</a></li>
-    <h2>Music</h2>
-    Spotify is a parasite that will not stop until it has reduced everything you love to a shriveled gray husk. Tee hee (:
-      <li><a href="https://buymusic.club">Buy Music Club</a></li>
-      
-    <h2>Games</h2>
-    Magic is one of my favourite games. Here are my <a href="https://moxfield.com/users/hotdogapocalypse">commander decks</a></li>.
-      </ul>
+  <main class="links-page">
+    <div id="avatar"></div>
+    <header>
+      <h1>hotdogapoca-links</h1>
+      <!--<p>Take a look around...</p>-->
+    </header>
+    <section class="links">
+      <a href="https://substack.com/@hotdogapocalypse">Substack</a>
+      <a href="https://buymusic.club">Buy Music Club</a>
+      <a href="https://moxfield.com/users/hotdogapocalypse">Moxfield</a>
+    </section>
     <div id ="nav"></div>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/avatar.html')
+          .then(response => response.text())
+          .then(html => {
+            const el = document.getElementById('avatar');
+            if (el) el.innerHTML = html;
+          })
+          .catch(console.error);
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/nav.html')
+          .then(response => response.text())
+          .then(html => {
+            const el = document.getElementById('nav');
+            if (el) el.innerHTML = html;
+          })
+          .catch(console.error);
+      });
+    </script>
+    </main>
+    </body>
 </html>
