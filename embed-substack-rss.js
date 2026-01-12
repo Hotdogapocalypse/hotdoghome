@@ -110,7 +110,7 @@
     }
 
     const feedBase = normalizeUrl(cfg.substackUrl);
-    const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`${feedBase}/feed`)}`;
+    const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`${feedBase}/feed`)}&api_key=z8i5ndksao2095u8trosrmovoulk8k59fuzg27se`;
 
     // Minimal skeleton while loading (optional)
     container.innerHTML = '<div class="substack-skeleton">Loading…</div>';
@@ -125,6 +125,17 @@
       }
 
       const posts = data.items.slice(0, Math.max(1, cfg.posts));
+      // Debug: expose counts to help diagnose why fewer posts render than expected
+      try {
+        console.debug('Substack feed:', { requested: cfg.posts, available: data.items.length, rendering: posts.length });
+        const dbg = document.createElement('div');
+        dbg.className = 'substack-debug';
+        dbg.style.fontSize = '0.85rem';
+        dbg.style.color = '#444';
+        dbg.style.margin = '0.5rem 0';
+        dbg.textContent = `Feed items: ${data.items.length} — rendering: ${posts.length} (requested ${cfg.posts})`;
+        container.appendChild(dbg);
+      } catch (e) { /* ignore during debug */ }
       if (!posts.length) {
         container.innerHTML = '<p class="substack-empty">No posts available.</p>';
         return;
