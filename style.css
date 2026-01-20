@@ -1,6 +1,9 @@
 body {
   max-width: 640px;  
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
   line-height: 1.65;
   margin: 4rem auto;
   padding: 0 1rem;
@@ -24,6 +27,7 @@ main.links-page {
 
 h1 {
   margin-bottom: 0.5rem;
+  font-weight: 700;
   color: #682b20;
   text-align: center;
 }
