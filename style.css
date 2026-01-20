@@ -5,7 +5,7 @@ body {
   margin: 4rem auto;
   padding: 0 1rem;
   background: #edd46f;
-  color: #2E0854;
+  color: #682b20;
 }
 
 /* Use border-box everywhere to avoid width+padding overflow issues */
@@ -24,7 +24,7 @@ main.links-page {
 
 h1 {
   margin-bottom: 0.5rem;
-  color: #2E0854;
+  color: #682b20;
   text-align: center;
 }
 
